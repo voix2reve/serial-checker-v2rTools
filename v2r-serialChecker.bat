@@ -4,7 +4,7 @@ title Serial Checker
 mode con: cols=110 lines= 40
 
 
-rem Display ASCII art in green
+rem made by vie2reve (v2r)
 cls
 echo.
 echo.[32m
@@ -24,7 +24,7 @@ echo    ╚══════╝╚══════╝╚═╝  ╚═╝╚�
 echo    [!]-github.com/vie2reve
 echo.[97m
 
-rem Set text color back to default (white on black)
+
 
 
 echo ============ MAIN MENU ============
@@ -72,7 +72,7 @@ echo [93m=========== [+] MAC ADDRESS ============[97m
 for /f "tokens=*" %%A in ('wmic path Win32_NetworkAdapter where "PNPDeviceID like '%%PCI%%' AND NetConnectionStatus=2 AND AdapterTypeID='0'" get MacAddress ^| findstr /r /v "^$"') do echo %%A
 echo.
 
-rem Menu after checking serial numbers
+
 echo.
 echo 1. Save serials
 echo 2. Exit
@@ -87,19 +87,19 @@ rem Function to save serial numbers with the date
 cls
 setlocal
 
-rem Create a backup file with the date and time
+
 set date=%date%
 set time=%time%
 set datetime=%date%_%time%
 
-rem Replace invalid characters in the filename (like ":" and "/")
+
 set datetime=%datetime:/=-%
 set datetime=%datetime::=-%
 
-rem Define the file path in the same directory as the script
+
 set filepath=%~dp0serials_%datetime%.txt
 
-rem Save serial numbers to a file
+
 echo ===========  [+] DISK ==================  > "%filepath%"
 for /f "tokens=*" %%A in ('wmic diskdrive get serialnumber ^| findstr /r /v "^$"') do echo %%A >> "%filepath%"
 echo. >> "%filepath%"
@@ -127,3 +127,5 @@ for /f "tokens=*" %%A in ('wmic path Win32_NetworkAdapter where "PNPDeviceID lik
 echo Serial numbers have been saved in a .txt file in the same directory as the script.
 timeout /t 5 /nobreak >nul
 goto CheckSerials
+
+rem made by vie2reve (v2r)
