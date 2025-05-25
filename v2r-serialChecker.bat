@@ -3,8 +3,7 @@ chcp 65001
 title V2R Tools - Serial Checker
 mode con: cols=110 lines= 40
 
-
-rem made by vie2reve (v2r)
+rem made by voix2rêve (v2r)
 cls
 echo.
 echo.[32m
@@ -21,11 +20,8 @@ echo    ███████╗█████╗  ██████╔╝█�
 echo    ╚════██║██╔══╝  ██╔══██╗██║██╔══██║██║         ██║     ██╔══██║██╔══╝  ██║     ██╔═██╗ ██╔══╝  ██╔══██╗
 echo    ███████║███████╗██║  ██║██║██║  ██║███████╗    ╚██████╗██║  ██║███████╗╚██████╗██║  ██╗███████╗██║  ██║
 echo    ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚══════╝     ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-echo    [!]-github.com/vie2reve
+echo    [!]-github.com/voix2rêve
 echo.[97m
-
-
-
 
 echo ============ MAIN MENU ============
 echo 1. Check Serials
@@ -42,7 +38,6 @@ goto MainMenu
 cls
 DISM /Online /Add-Capability /CapabilityName:WMIC~~~~
 exit
-
 
 :CheckSerials
 cls
@@ -72,7 +67,6 @@ echo [93m=========== [+] MAC ADDRESS ============[97m
 for /f "tokens=*" %%A in ('wmic path Win32_NetworkAdapter where "PNPDeviceID like '%%PCI%%' AND NetConnectionStatus=2 AND AdapterTypeID='0'" get MacAddress ^| findstr /r /v "^$"') do echo %%A
 echo.
 
-
 echo.
 echo 1. Save serials
 echo 2. Exit
@@ -87,18 +81,14 @@ rem Function to save serial numbers with the date
 cls
 setlocal
 
-
 set date=%date%
 set time=%time%
 set datetime=%date%_%time%
 
-
 set datetime=%datetime:/=-%
 set datetime=%datetime::=-%
 
-
 set filepath=%~dp0serials_%datetime%.txt
-
 
 echo ===========  [+] DISK ==================  > "%filepath%"
 for /f "tokens=*" %%A in ('wmic diskdrive get serialnumber ^| findstr /r /v "^$"') do echo %%A >> "%filepath%"
@@ -128,4 +118,4 @@ echo Serial numbers have been saved in a .txt file in the same directory as the 
 timeout /t 5 /nobreak >nul
 goto CheckSerials
 
-rem made by vie2reve (v2r)
+rem made by voix2rêve (v2r)
