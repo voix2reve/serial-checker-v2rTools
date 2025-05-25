@@ -1,5 +1,6 @@
 🚀 **[V2R Tools - Serial Checker] Use this script to check and save your hardware serial numbers!** 🚀
-![image](https://github.com/user-attachments/assets/3072fdb0-acbd-4f0c-9854-e5fb7870a84c)
+![image](https://github.com/user-attachments/assets/8230cedc-b1e3-48f2-9d88-0b3a24776c04)
+
 
 
 💻 **Script Description:**
